@@ -1,91 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-  background-color: #f8f8f8;
-}
-
-h1 {
-  margin-bottom: 40px;
-}
-
-#gallery {
-  display: flex;
-  flex-wrap: nowrap;  /* Prevent wrapping of images */
-  overflow-x: scroll;  /* Horizontal scrolling */
-  gap: 20px;
-  justify-content: center;
-  padding-bottom: 10px;  /* Space at the bottom of the gallery */
-  scroll-behavior: smooth;  /* Smooth scrolling */
-}
-
-.photo {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  max-width: 220px;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.photo:hover {
-  transform: scale(1.05);
-}
-
-.photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.photo img:hover {
-  transform: scale(1.1);
-}
-
-.photo a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: white;
-  background-color: #0070f3;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-}
-
-.photo a:hover {
-  background-color: #0059c1;
-}
-
-/* Scroll buttons styling */
-.scroll-button {
-  font-size: 2em;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  transition: background-color 0.3s ease;
-}
-
-#scrollLeft {
-  left: 10px; /* Position the left button */
-}
-
-#scrollRight {
-  right: 10px; /* Position the right button */
-}
-
-.scroll-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
 /* Lightbox styling */
 .lightbox {
   display: none;
@@ -101,8 +13,9 @@ h1 {
 }
 
 #lightboxImage {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 90%;  /* Limit the image to 90% of the viewport width */
+  max-height: 80%; /* Limit the image to 80% of the viewport height */
+  object-fit: contain;  /* Ensures the image retains its aspect ratio */
   border-radius: 10px;
 }
 
