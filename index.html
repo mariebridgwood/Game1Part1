@@ -22,12 +22,21 @@
 
   <script>
     const imageList = [
-      "DSC_0297.JPG",
-      "DSC_0298.JPG",
-      "DSC_0299.JPG",
-      "DSC_0300.JPG",
-      "DSC_0301.JPG",
-      "DSC_0302.JPG"
+"DSC_0297.JPG",
+"DSC_0298.JPG",
+"DSC_0299.JPG",
+"DSC_0300.JPG",
+"DSC_0301.JPG",
+"DSC_0302.JPG",
+"DSC_0303.JPG",
+"DSC_0304.JPG",
+"DSC_0305.JPG",
+"DSC_0306.JPG",
+"DSC_0307.JPG",
+"DSC_0308.JPG",
+"DSC_0309.JPG",
+"DSC_0310.JPG"
+
     ];
 
     const gallery = document.getElementById("gallery");
@@ -82,13 +91,7 @@
     });
 
     // Close the lightbox when clicking outside of the image
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox(); // Close when clicking on the background
-      }
-    });
-
-    // Close the lightbox when clicking the close button
+    lightbox.addEventListener('click', closeLightbox);
     closeBtn.addEventListener('click', closeLightbox);
 
   </script>
