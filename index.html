@@ -10,6 +10,10 @@
 
   <h1>My Photo Gallery</h1>
 
+  <!-- Scroll Buttons -->
+  <button id="scrollLeft" class="scroll-button">&lt;</button>
+  <button id="scrollRight" class="scroll-button">&gt;</button>
+
   <div id="gallery" class="gallery"></div>
 
   <script>
@@ -33,6 +37,18 @@
         <a href="images/${filename}" download>Download</a>
       `;
       gallery.appendChild(photoDiv);
+    });
+
+    // Scroll functionality
+    const scrollLeft = document.getElementById("scrollLeft");
+    const scrollRight = document.getElementById("scrollRight");
+
+    scrollLeft.addEventListener("click", () => {
+      gallery.scrollBy({ left: -300, behavior: 'smooth' });  // Scroll left by 300px
+    });
+
+    scrollRight.addEventListener("click", () => {
+      gallery.scrollBy({ left: 300, behavior: 'smooth' });   // Scroll right by 300px
     });
   </script>
 

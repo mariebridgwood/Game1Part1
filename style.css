@@ -9,11 +9,14 @@ h1 {
   margin-bottom: 40px;
 }
 
-.gallery {
+#gallery {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;  /* Prevent wrapping of images */
+  overflow-x: scroll;  /* Horizontal scrolling */
   gap: 20px;
   justify-content: center;
+  padding-bottom: 10px;  /* Space at the bottom of the gallery */
+  scroll-behavior: smooth;  /* Smooth scrolling */
 }
 
 .photo {
@@ -54,4 +57,31 @@ h1 {
 
 .photo a:hover {
   background-color: #0059c1;
+}
+
+/* Scroll buttons styling */
+.scroll-button {
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+#scrollLeft {
+  left: 10px; /* Position the left button */
+}
+
+#scrollRight {
+  right: 10px; /* Position the right button */
+}
+
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
