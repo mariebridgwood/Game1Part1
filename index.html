@@ -12,11 +12,12 @@
 
   <div id="gallery" class="gallery"></div>
 
-  <!-- Lightbox (hidden by default) -->
-  <div class="lightbox">
-    <span class="prev" onclick="changeImage(-1)">&#10094;</span> <!-- Previous button -->
-    <img src="" alt="Enlarged Image">
-    <span class="next" onclick="changeImage(1)">&#10095;</span> <!-- Next button -->
+  <!-- Lightbox -->
+  <div class="lightbox" style="display:none;">
+    <span class="close">&times;</span>
+    <img src="" alt="Enlarged photo">
+    <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+    <button class="next" onclick="changeImage(1)">&#10095;</button>
   </div>
 
   <script>
@@ -30,7 +31,7 @@
     ];
 
     const gallery = document.getElementById("gallery");
-    let currentImageIndex = 0; // Track the current image index
+    let currentImageIndex = 0;
 
     // Add each image dynamically
     imageList.forEach(filename => {
@@ -44,20 +45,22 @@
     });
 
     // Lightbox functionality
-    const images = document.querySelectorAll('.gallery img'); // All gallery images
-    const lightboxImage = document.querySelector('.lightbox img'); // Image inside the lightbox
-    const lightbox = document.querySelector('.lightbox'); // The lightbox container
+    const images = document.querySelectorAll('.gallery img');
+    const lightboxImage = document.querySelector('.lightbox img');
+    const lightbox = document.querySelector('.lightbox');
+    const closeBtn = document.querySelector('.close');
 
     // Open the lightbox with the clicked image
     function openLightbox(event) {
-      currentImageIndex = Array.from(images).indexOf(event.target); // Set the current image index
-      lightboxImage.src = event.target.src; // Set the source of the lightbox image
-      lightbox.style.display = 'flex'; // Show the lightbox
+      event.preventDefault(); // Prevent default behavior (navigating to image)
+      currentImageIndex = Array.from(images).indexOf(event.target);
+      lightboxImage.src = event.target.src;
+      lightbox.style.display = 'flex';
     }
 
     // Close the lightbox
     function closeLightbox() {
-      lightbox.style.display = 'none'; // Hide the lightbox
+      lightbox.style.display = 'none';
     }
 
     // Change image in lightbox (Next/Previous)
@@ -70,16 +73,18 @@
         currentImageIndex = 0; // Go back to the first image
       }
 
-      lightboxImage.src = images[currentImageIndex].src; // Update the lightbox image source
+      lightboxImage.src = images[currentImageIndex].src;
     }
 
-    // Event listener for each image in the gallery
+    // Add event listener for gallery images
     images.forEach(image => {
       image.addEventListener('click', openLightbox);
     });
 
-    // Close the lightbox when clicking outside the image
+    // Close the lightbox when clicking outside of the image
     lightbox.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', closeLightbox);
+
   </script>
 
 </body>
