@@ -13,8 +13,8 @@
 }
 
 #lightboxImage {
-  max-width: 90%;  /* Limit the image to 90% of the viewport width */
-  max-height: 80%; /* Limit the image to 80% of the viewport height */
+  max-width: 75%;  /* Set the max width to 75% of the screen width */
+  max-height: 70%; /* Set the max height to 70% of the screen height */
   object-fit: contain;  /* Ensures the image retains its aspect ratio */
   border-radius: 10px;
 }
