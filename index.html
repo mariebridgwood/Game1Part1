@@ -16,6 +16,12 @@
 
   <div id="gallery" class="gallery"></div>
 
+  <!-- Lightbox Container -->
+  <div id="lightbox" class="lightbox">
+    <span id="closeLightbox" class="close-button">&times;</span>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
   <script>
     const imageList = [
       "DSC_0297.JPG",
@@ -33,7 +39,7 @@
       const photoDiv = document.createElement('div');
       photoDiv.className = 'photo';
       photoDiv.innerHTML = `
-        <img src="images/${filename}" alt="${filename}">
+        <img src="images/${filename}" alt="${filename}" class="gallery-image">
         <a href="images/${filename}" download>Download</a>
       `;
       gallery.appendChild(photoDiv);
@@ -49,6 +55,32 @@
 
     scrollRight.addEventListener("click", () => {
       gallery.scrollBy({ left: 300, behavior: 'smooth' });   // Scroll right by 300px
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    // Open lightbox when image is clicked
+    const galleryImages = document.querySelectorAll(".gallery-image");
+    galleryImages.forEach(image => {
+      image.addEventListener("click", function() {
+        lightbox.style.display = "flex";
+        lightboxImage.src = this.src;
+      });
+    });
+
+    // Close lightbox when close button is clicked
+    closeLightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
     });
   </script>
 
