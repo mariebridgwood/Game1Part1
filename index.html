@@ -10,6 +10,20 @@
 
   <h1>My Photo Gallery</h1>
 
+  <!-- Add links to other repositories -->
+  <div class="gallery-links">
+    <div class="gallery-link">
+      <a href="https://mariebridgwood.github.io/Game1Part1/" target="_blank">Game 1 - Part 1</a>
+    </div>
+    <div class="gallery-link">
+      <a href="https://mariebridgwood.github.io/Game1Part2/" target="_blank">Game 1 - Part 2</a>
+    </div>
+    <div class="gallery-link">
+      <a href="https://mariebridgwood.github.io/Event2/" target="_blank">Event 2</a>
+    </div>
+    <!-- Add more as needed -->
+  </div>
+
   <div id="gallery" class="gallery"></div>
 
   <!-- Lightbox -->
@@ -22,21 +36,20 @@
 
   <script>
     const imageList = [
-"DSC_0297.JPG",
-"DSC_0298.JPG",
-"DSC_0299.JPG",
-"DSC_0300.JPG",
-"DSC_0301.JPG",
-"DSC_0302.JPG",
-"DSC_0303.JPG",
-"DSC_0304.JPG",
-"DSC_0305.JPG",
-"DSC_0306.JPG",
-"DSC_0307.JPG",
-"DSC_0308.JPG",
-"DSC_0309.JPG",
-"DSC_0310.JPG"
-
+      "DSC_0297.JPG",
+      "DSC_0298.JPG",
+      "DSC_0299.JPG",
+      "DSC_0300.JPG",
+      "DSC_0301.JPG",
+      "DSC_0302.JPG",
+      "DSC_0303.JPG",
+      "DSC_0304.JPG",
+      "DSC_0305.JPG",
+      "DSC_0306.JPG",
+      "DSC_0307.JPG",
+      "DSC_0308.JPG",
+      "DSC_0309.JPG",
+      "DSC_0310.JPG"
     ];
 
     const gallery = document.getElementById("gallery");
@@ -61,7 +74,7 @@
 
     // Open the lightbox with the clicked image
     function openLightbox(event) {
-      event.preventDefault(); // Prevent default behavior (navigating to image)
+      event.preventDefault();
       currentImageIndex = Array.from(images).indexOf(event.target);
       lightboxImage.src = event.target.src;
       lightbox.style.display = 'flex';
@@ -77,20 +90,19 @@
       currentImageIndex += direction;
 
       if (currentImageIndex < 0) {
-        currentImageIndex = images.length - 1; // Go to the last image
+        currentImageIndex = images.length - 1;
       } else if (currentImageIndex >= images.length) {
-        currentImageIndex = 0; // Go back to the first image
+        currentImageIndex = 0;
       }
 
       lightboxImage.src = images[currentImageIndex].src;
     }
 
-    // Add event listener for gallery images
+    // Add event listeners
     images.forEach(image => {
       image.addEventListener('click', openLightbox);
     });
 
-    // Close the lightbox when clicking outside of the image
     lightbox.addEventListener('click', closeLightbox);
     closeBtn.addEventListener('click', closeLightbox);
 
