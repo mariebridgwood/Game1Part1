@@ -82,7 +82,13 @@
     });
 
     // Close the lightbox when clicking outside of the image
-    lightbox.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox(); // Close when clicking on the background
+      }
+    });
+
+    // Close the lightbox when clicking the close button
     closeBtn.addEventListener('click', closeLightbox);
 
   </script>
