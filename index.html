@@ -109,6 +109,13 @@
     const lightboxImage = document.querySelector('.lightbox img');
     const closeBtn = document.querySelector('.close');
 
+    // Toggle zoom on click inside the lightbox image
+lightboxImage.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevent closing lightbox when clicking image
+  lightboxImage.classList.toggle('zoomed');
+});
+
+
     // Add event listeners AFTER adding images
     const thumbnails = document.querySelectorAll('.gallery img');
 
