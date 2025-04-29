@@ -105,11 +105,20 @@ h1 {
   border-radius: 50%;
 }
 
-/* New styles for navigation links */
+/* Make the list horizontal */
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+/* Space between each item */
 .nav-list li {
   margin: 0 15px;
 }
 
+/* Styling active link */
 .nav-list li a.active {
   text-decoration: none;
   color: blue;
@@ -118,6 +127,7 @@ h1 {
   transition: color 0.3s;
 }
 
+/* Styling hover */
 .nav-list li a:hover {
   color: darkblue;
   text-decoration: underline;
